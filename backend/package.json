@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "php artisan serve --host=127.0.0.1 --port=8002",
+    "build": "vite build",
+    "serve": "php artisan serve --host=127.0.0.1 --port=8002",
+    "serve:8002": "php artisan serve --host=127.0.0.1 --port=8002",
+    "migrate": "php artisan migrate",
+    "dev:vite": "vite"
+  },
+  "devDependencies": {
+    "axios": "^1.6.4",
+    "laravel-vite-plugin": "^1.0.0",
+    "vite": "^5.0.0"
+  }
+}

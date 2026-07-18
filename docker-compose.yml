@@ -1,0 +1,47 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: trangsuc-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      APP_URL: http://localhost:8002
+      RUN_SEEDERS: "${RUN_SEEDERS:-false}"
+      RESEND_API_KEY: "${RESEND_API_KEY:-}"
+      RESEND_FROM_ADDRESS: "${RESEND_FROM_ADDRESS:-Duc Chinh Jewelry <onboarding@resend.dev>}"
+      CONTACT_NOTIFICATION_EMAIL: "${CONTACT_NOTIFICATION_EMAIL:-hello@ducchinhjewelry.vn}"
+      FRONTEND_URL: "${FRONTEND_URL:-http://localhost:3002}"
+      VNPAY_PAYMENT_URL: "${VNPAY_PAYMENT_URL:-https://sandbox.vnpayment.vn/paymentv2/vpcpay.html}"
+      VNPAY_TMN_CODE: "${VNPAY_TMN_CODE:-}"
+      VNPAY_HASH_SECRET: "${VNPAY_HASH_SECRET:-}"
+      VNPAY_RETURN_URL: "${VNPAY_RETURN_URL:-http://localhost:8002/api/payments/vnpay/return}"
+    ports:
+      - "8002:8002"
+    volumes:
+      - ./backend:/var/www/html
+      - ./frontend/data:/var/www/frontend/data:ro
+      - backend_vendor:/var/www/html/vendor
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: trangsuc-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      NODE_ENV: production
+      PORT: "3002"
+      HOSTNAME: 0.0.0.0
+      LARAVEL_API_URL: http://backend:8002/api
+      NEXT_PUBLIC_API_URL: /api
+      NEXT_PUBLIC_SITE_URL: "${NEXT_PUBLIC_SITE_URL:-http://localhost:3002}"
+    ports:
+      - "3002:3002"
+
+volumes:
+  backend_vendor:

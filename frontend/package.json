@@ -1,0 +1,43 @@
+{
+  "name": "duc-chinh-jewelry-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0 -p 3002",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0 -p 3002",
+    "lint": "eslint . --ignore-pattern .next --ignore-pattern node_modules",
+    "typecheck": "tsc --noEmit --incremental false",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "dev:3002": "next dev -H 0.0.0.0 -p 3002"
+  },
+  "dependencies": {
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "axios": "^1.16.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.39.0",
+    "lucide-react": "^0.544.0",
+    "next": "^16.0.9",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.2",
+    "react-dom": "^19.2.2",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.61.1",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^25.0.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "15.2.1",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  }
+}

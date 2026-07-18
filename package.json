@@ -1,0 +1,11 @@
+{
+  "name": "duc-chinh-jewelry",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:backend": "npm --prefix backend run dev",
+    "start:frontend": "npm --prefix frontend run start",
+    "start:backend": "npm --prefix backend run serve",
+    "lint:frontend": "npm --prefix frontend run lint"
+  }
+}
